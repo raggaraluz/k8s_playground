@@ -15,6 +15,7 @@ Start creating the katakoda environment and in the controlplane node execute:
 git clone https://github.com/davidp1404/k8s_playground.git
 cd k8s_playground
 ./set-env.sh
+source ~/.bashrc
 cd rbac
 ./enable-token-auth.sh
 echo "Wait till kubectl shows the node list"
