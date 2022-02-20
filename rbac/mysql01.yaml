@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mysql01
+  name: mysql01
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql01
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mysql01
+    spec:
+      containers:
+      - image: mysql:5.7.37
+        name: mysql
+        resources: {}
+        envFrom:
+        - secretRef:
+          name: database-access
