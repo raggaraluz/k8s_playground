@@ -23,4 +23,4 @@ spec:
         resources: {}
         envFrom:
         - secretRef:
-          name: database-access
+            name: database-access
