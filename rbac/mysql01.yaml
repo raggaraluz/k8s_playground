@@ -18,7 +18,7 @@ spec:
         app: mysql01
     spec:
       containers:
-      - image: mysql:5.7.37
+      - image: quay.io/bitnami/mysql:5.7.37
         name: mysql
         resources: {}
         envFrom:
