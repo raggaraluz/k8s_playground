@@ -1,4 +1,4 @@
-# RBAC exercises
+# RBAC exercise
 
 ## Scenario One:
 - We were asked to deploy a mysql instance that uses a secret named "database-access" to set credentials.
