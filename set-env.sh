@@ -1,7 +1,7 @@
 #!/bin/bash
-curl -qLO https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx /tmp
+curl -sLO https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx /tmp/kubectx
 install -ma+x /tmp/kubectx /usr/local/bin/kubectx
-curl -qLO https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens /tmp
+curl -sLO https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens /tmp/kubens
 install -ma+x /tmp/kubens /usr/local/bin/kubens
 echo "source <(kubectl completion bash)" >> ~/.bashrc 
 echo "source <(kubectl completion bash)" >> ~/.bashrc 
