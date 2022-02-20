@@ -10,6 +10,17 @@ Questions:
 1. Can we grant Dave permission to create secrets without expossing the dabase credentials?
 2. Is database secret really secured in this scene?, what do we have to change to make it really secure?
 
+Start creating the katakoda environment and in the controlplane node execute:
+```
+git clone https://github.com/davidp1404/k8s_playground.git
+cd k8s_playground
+./set-env.sh
+cd rbac
+./enable-token-auth.sh
+echo "Wait till kubectl shows the node list"
+watch -n 5 kubectl get nodes
+```
+
 <details close>
 <summary> Solution</summary>
 <br>
