@@ -9,3 +9,9 @@
 Questions:
 1. Can we grant Dave permission to create secrets without expossing the dabase credentials?
 2. Is database secret really secured in this scene?, what do we have to change to make it really secure?
+
+<details close>
+<summary> Solution</summary>
+<br>
+### Solution
+  
