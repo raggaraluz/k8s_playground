@@ -13,7 +13,6 @@ Questions:
 <details close>
 <summary> Solution</summary>
 <br>
-### Solution
     
 EnCt2ddb22ccdf22d68c21fa0c5d299ba10ffae6c29dbddb22ccdf22d68c21fa0c5d2o3bSnNe70AJ
 KPpMrEmLpVd486NaXbKXg8SfOUI+BM8skAWZZWN+I8k0DSLLt0SjhC7/mzSlyze6AfKlr6FwUizuNRuK
