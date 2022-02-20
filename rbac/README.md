@@ -6,3 +6,6 @@
 - User Bob (context=bob), as DBA must be the unique user who can view/manage secrent named "database-access" in namespaces "staging" and "production"
 - A serviceaccount named "spinnaker" must be able to deploy the resources created by Dave and Bob in "production" namespace.
 
+Questions:
+- Can we grant Dave permission to create secrets without expossing the dabase credentials?
+- Is database secret really secured in this scene? 
