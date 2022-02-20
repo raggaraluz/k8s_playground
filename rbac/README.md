@@ -2,7 +2,7 @@
 
 ## Scenario One:
 - We were asked to deploy a mysql instance that uses a secret named "database-access" to set credentials.
-- User Dave (context=dave), as developer must be able only to manage deployments and pods in namespace "staging". To make him able to troubleshoot issues allow him the capability to watch console output but not exec into the pod (a simple env will show him the password as you know).
+- User Dave (context=dave), as developer must be able only to manage deployments and pods in namespace "staging". To let him able to troubleshoot issues allow the capability to watch console output but __not exec into the pod__.
 - User Bob (context=bob), as DBA must be the unique user who can view/manage secrent named "database-access" in namespaces "staging" and "production"
 - A serviceaccount named "spinnaker" must be able to deploy the resources created by Dave and Bob in "production" namespace.
 
