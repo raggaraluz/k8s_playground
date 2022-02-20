@@ -2,7 +2,7 @@
 curl -LO https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx /tmp
 install -ma+x /tmp/kubectx /usr/local/bin/kubectx
 curl -LO https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens /tmp
-install -ma+x /tmp/kubecns /usr/local/bin/kubens
+install -ma+x /tmp/kubens /usr/local/bin/kubens
 echo "source <(kubectl completion bash)" >> ~/.bashrc 
 echo "source <(kubectl completion bash)" >> ~/.bashrc 
 echo "alias k=kubectl" >> ~/.bashrc
