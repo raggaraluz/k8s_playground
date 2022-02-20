@@ -20,6 +20,16 @@ cd rbac
 echo "Wait till kubectl shows the node list"
 watch -n 5 kubectl get nodes
 ```
+Two kubeconfig contexts were created, you can move between them with kubectx passing como parameter the new context name.
+You can change your default namespace with:
+```
+controlplane $ kubectx
+bob
+dave
+kubernetes-admin@kubernetes
+
+controlplane $ k config set-context --current --namespace staging
+```
 
 <details close>
 <summary> Solution</summary>
