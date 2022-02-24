@@ -1,7 +1,6 @@
 # Network policy exercise
 
-## Scenario One:
-Environment Preparation
+## Environment Preparation
 
 It’s an example of an application with backend/frontend separated with namespaces and admin namespace which need to have access to both namespaces (frontend and backend)
 - web pod(frontend) needs to talk with api pod(backend).
