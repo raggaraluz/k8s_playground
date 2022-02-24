@@ -36,53 +36,64 @@ controlplane $ k config set-context --current --namespace staging
 <summary> Solution</summary>
 <br>
   
-EnCt2516f1d5c02e643a85d27038ce62ad96f77b46650516f1d5c02e643a85d27038cflH75SnXmQP
-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
-P5vZxIwEmS
+Create namespaces
+```
+k create ns staging
+k create ns production
+```
+Create roles and bindings
+```
+k create clusterrole myapp1:dev-role --resource=deployments,pods,pods/log --verb='*' --resource=events --verb=get,watch
+k label clusterrole myapp1:dev-role app=myapp1
+k create clusterrole myapp1:dba-role --resource=secrets --verb='*'
+k label clusterrole myapp1:dba-role app=myapp1
+k get clusterroles -l app=myapp1
 
-Decrypt it at https://encipher.it
+k -n staging create rolebinding dev-users --clusterrole=myapp1:dev-role --group=dev
+k -n production create rolebinding dba-users --clusterrole=myapp1:dba-role --group=dba
+k -n staging create rolebinding dba-users --clusterrole=myapp1:dba-role --group=dba
+
+k -n staging get pods --as dave --as-group dev
+
+kubectx dave
+k config set-context --current --namespace staging
+k -n staging create -f mysql01.yaml
+
+kubectx bob
+k config set-context --current --namespace staging
+k -n staging create -f access-database-secret.yaml
+
+kubectx kubernetes-admin@kubernetes
+k -n production create sa spinnaker-sa
+k -n production create rolebinding spinnaker-sa-binding --clusterrole=admin --serviceaccount=production:spinnaker-sa
+```
+Check we have admin permissions
+```
+k auth can-i --list -n production --as system:serviceaccount:production:spinnaker-sa
+```
+1. Can we grant Dave permission to create secrets without expossing the dabase credentials?    
+Not in the same namespace, rbac in k8s doesn't allow us to set deny rules, only allow ones.To bypass this limitation we must relay on [AdmissionControllers](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/)
+
+2. Is database secret really secured in this scene?, what do we have to change to make it really secure?    
+Not really, as you allow Dave to create pods and watch logs he can create a new pod that mounts the database secret and dumps the value to console.
+```
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hack
+spec:
+  containers:
+  - args:
+    - env
+    image: mirror.gcr.io/library/alpine
+    name: hack
+    envFrom:
+    - secretRef:
+        name: database-access
+EOF
+
+k logs hack | grep -i mysql
+```
+Without special functionality you can't keep hidden any secret in any namespace where Dave can create containers. Although you remove the capability to watch logs it could be dumped by your corporate logging collector. But you could have a validating web-hook (like Open Policy Agent) configured to intercept all pod creation request coming to Kubernetes API Server. With OPA policies you can only allow the pod creation request if pod spec does not have any invalid or unwanted secrets otherwise it rejects the pod creation request.
+Another related restriction to bear in mind is that a pod only can mount secrets created in the same namespace it runs.
