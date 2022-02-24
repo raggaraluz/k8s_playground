@@ -12,31 +12,31 @@ Create frontend namespace and deploy web pod into:
 ```
 $ kubectl create ns frontend
 $ kubectl label namespaces frontend role=frontend
-$ kubectl run --generator=run-pod/v1 web --image=nginx --labels=app=web --port 80 -n frontend
+$ kubectl run web --image=nginx --labels=app=web --port 80 -n frontend
 $ kubectl expose pod web --type=ClusterIP --port=80 -n frontend
 ```
 Create backend namespace and deploy api pod into:
 ```
 $ kubectl create ns backend
 $ kubectl label namespaces backend role=backend
-$ kubectl run --generator=run-pod/v1 api --image=nginx --labels=app=api --port 80 -n backend
+$ kubectl run api --image=nginx --labels=app=api --port 80 -n backend
 $ kubectl expose pod api --type=ClusterIP --port=80 -n backend
 ```
 Create admin namespace and deploy admin pod into:
 ```
 $ kubectl create ns admin
 $ kubectl label namespaces admin role=admin
-$ kubectl run --generator=run-pod/v1 admin --image=nginx --labels=app=admin --port 80 -n admin
+$ kubectl run admin --image=nginx --labels=app=admin --port 80 -n admin
 $ kubectl expose pod admin --type=ClusterIP --port=80 -n admin
 ```
 Create test namespace and deploy test pod into:
 ```
 $ kubectl create ns test
-$ kubectl run --generator=run-pod/v1 test --image=nginx --labels=app=test --port 80 -n test
+$ kubectl run test --image=nginx --labels=app=test --port 80 -n test
 $ kubectl expose pod test --type=ClusterIP --port=80 -n test
 ```
 This namespace/pod will be used for testing, no network policies will be installed to this namespace
-5. Validate that connections between all pods in different namespaces permitted.
+Validate that connections between all pods in different namespaces permitted.
 ```
 $ kubectl exec -it web -n frontend -- curl api.backend
 $ kubectl exec -it web -n frontend -- curl admin.admin
@@ -46,9 +46,8 @@ $ kubectl exec -it api -n backend -- curl web.frontend
 $ kubectl exec -it api -n backend -- curl admin.admin
 ```
 You must see ‘Welcome to nginx!’ reply in all cases.
-Exercises
+## Exercises
 Deny all traffic from all namespaces. Create Network policy and deploy to frontend/backend/admin namespaces.
-
 You must see ‘Connection timed out’ instead of ‘Welcome nignx’
 ```
 $ kubectl exec -it test -n test -- curl api.backend
@@ -56,7 +55,6 @@ $ kubectl exec -it test -n test -- curl admin.admin
 $ kubectl exec -it test -n test -- curl web.frontend
 ```
 Allow ingress in api pod from web pod. Create Network policy and deploy to backend namespace.
-
 You must see ‘Welcome nignx’
 ```
 $ kubectl exec -it web -n frontend -- curl api.backend
@@ -68,7 +66,6 @@ You must see ‘Welcome nignx’
 $ kubectl exec -it test -n test -- curl web.frontend
 ```
 Allow ingress in api/web pods for admin pod. Modify network policy of api pod and deploy it to backend namespace.
-
 You must see ‘Welcome nignx’
 ```
 $ kubectl exec -it admin -n admin -- curl api.backend
