@@ -5,6 +5,6 @@ These examples were tested in https://www.katacoda.com/courses/kubernetes/playgr
 February live sessions:
 
 1. [RBAC exercise](rbac)
-2. [Network policies](np)
+2. [Network policies exercise](np)
 
 March live sessions:
