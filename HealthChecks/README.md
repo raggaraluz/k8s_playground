@@ -70,7 +70,7 @@ What does the customer see?, why?, does it recover?.
 ## Key points to highlight:
 - If you don't set the readiness probe, the kubelet assumes that the app is ready to receive traffic as soon as the container starts.
 - If the container takes 10 secons to start, all the requests to it will fail for those 10 seconds. 
-- If the application reaches an unrecoverable error, you should let it crash quickly. A common best-practice if is to implement a full health check in your app returning an error code that tells k8s (kubelet) the container/pod is dead.
+- If the application reaches an unrecoverable error, you should let it crash quickly. A common best-practice if is to implement a full health check in your app returning an error code that tells k8s (kubelet) the container/pod is dead. If your app is vulnerable to deadlocks implements watchdog functions.
 - Readiness probes delay setting conditions conditions to insertion of the pod in the service (endpoints join the pieces), but does nothing after it is added.
 - Liveness probles monitor and restart pods along all its live.
 - You must understand the [pod lifecycle](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/) to tune properly your app for minimal downtime. There are not single value definition that fits all cases.
