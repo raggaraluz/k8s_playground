@@ -24,7 +24,7 @@ http://pyweb-service:8080 2022-02-25 12:10:04.148395 code: 200
 http://pyweb-service:8080 2022-02-25 12:10:04.652645 code: 200
 http://pyweb-service:8080 2022-02-25 12:10:05.157840 code: 200
 ```
-Previous window will show you how the service is reponding when some events happen (the customer perspective).
+Previous window will show you how the service is responding when some events happen (the customer perspective).
 
 Start another terminal and execute:
 ```
