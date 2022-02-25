@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: pyweb
+    mod: main
+  name: pyweb
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pyweb
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: pyweb
+        mod: main
+      annotations:
+        networking/allow-outside-access: "true"
+    spec:
+      containers:
+      - command:
+        - python
+        - /tmp/pyweb.py
+        image: python:3.8-alpine
+        name: python
+        env:
+        - name: DELAY
+          value: "10"
+        resources: {}
+        volumeMounts:
+        - name: script
+          mountPath: /tmp/pyweb.py
+          subPath: pyweb.py
+      volumes:
+      - name: script
+        configMap:
+          name: pyweb-script
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pyweb-service
+  labels:
+    app: pyweb
+spec:
+  ports:
+    - port: 8080 
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: pyweb
+    mod: main
+  type: LoadBalancer
