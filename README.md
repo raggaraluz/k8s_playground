@@ -4,7 +4,8 @@ These examples were tested in https://www.katacoda.com/courses/kubernetes/playgr
 
 February live sessions:
 
-1. [RBAC exercise](rbac)
-2. [Network policies exercise](np)
+* [RBAC exercise](rbac)
+* [Network policies exercise](np)
 
 March live sessions:
+* [HealthChecks](HealthChecks)
