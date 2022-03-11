@@ -35,6 +35,18 @@ spec:
         - name: script
           mountPath: /tmp/pyweb.py
           subPath: pyweb.py
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 3
       volumes:
       - name: script
         configMap:
@@ -48,7 +60,7 @@ metadata:
     app: pyweb
 spec:
   ports:
-    - port: 8080 
+    - port: 8080
       targetPort: 8080
       protocol: TCP
   selector:
