@@ -1,12 +1,12 @@
 apiVersion: v1
 data:
   pyweb.py: "# Python 3 server example\nfrom http.server import BaseHTTPRequestHandler,
-    HTTPServer\nfrom pathlib import Path\nimport time,os\n\nhostName = \"0.0.0.0\"\nserverPort
-    = 8080\n\nclass MyServer(BaseHTTPRequestHandler):\n    def do_GET(self):\n        if
-    os.path.exists('/tmp/ok'):\n            self.send_response(200)\n        else:\n
-    \           self.send_response(500)\n            #os._exit(-1)  # Tip 4: When
-    failure detectec quit\n        self.send_header(\"Content-type\", \"text/html\")\n
-    \       self.end_headers()\n        self.wfile.write(bytes(\"<html><head><title>https://pythonbasics.org</title></head>\",
+    HTTPServer\nfrom pathlib import Path\nfrom random import randint\nimport time,os\n\nhostName
+    = \"0.0.0.0\"\nserverPort = 8080\n\nclass MyServer(BaseHTTPRequestHandler):\n
+    \   def do_GET(self):\n        if os.path.exists('/tmp/ok'):\n            time.sleep(randint(100,1000)/1000)
+    \ # Time your app takes to respond\n            self.send_response(200)\n        else:\n
+    \           self.send_response(500)\n        self.send_header(\"Content-type\",
+    \"text/html\")\n        self.end_headers()\n        self.wfile.write(bytes(\"<html><head><title>https://pythonbasics.org</title></head>\",
     \"utf-8\"))\n        self.wfile.write(bytes(\"<p>Request: %s</p>\" % self.path,
     \"utf-8\"))\n        self.wfile.write(bytes(\"<body>\", \"utf-8\"))\n        self.wfile.write(bytes(\"<p>This
     is an example web server.</p>\", \"utf-8\"))\n        self.wfile.write(bytes(\"</body></html>\",
