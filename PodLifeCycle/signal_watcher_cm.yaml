@@ -1,0 +1,31 @@
+apiVersion: v1
+data:
+  signal_watcher.py: |
+    from time import sleep
+    import signal, os
+    import sys
+
+
+    def sigterm_handler(_signo, _stack_frame):
+        # Raises SystemExit(0):
+        output (f"\rGradful shutdown started",end="")
+        sleep(int(os.getenv('DELAY')))
+        output (f"\rGraceful shutdown ended\n",end="")
+        sys.exit(0)
+
+
+    signal.signal(signal.SIGTERM, sigterm_handler)
+    # try:
+    pid = os.getpid()
+    output(f"Hello, my pid is {pid}")
+    i = 0
+    while True:
+        i += 1
+        output (f"\rIteration #{i}",end="")
+        sleep(1)
+    # finally:
+    #     output ("\nGoodbye")
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: signal-watcher
