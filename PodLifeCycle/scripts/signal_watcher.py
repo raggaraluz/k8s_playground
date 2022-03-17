@@ -17,7 +17,8 @@ pid = os.getpid()
 print(f"Hello, my pid is {pid}", flush=True)
 i = 0
 while True:
-    i += 1
-    print (f"Iteration #{i}", flush=True)
+    if os.path.exists('/tmp/ok'):
+        i += 1
+        print (f"Iteration #{i}", flush=True)
     sleep(1)
 

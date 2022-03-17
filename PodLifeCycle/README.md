@@ -33,17 +33,23 @@ make kill     # Just issue a kubectl delete pod ..
 ```
 Watch the secuence of messages of the different handlers.
 
-## Some experiments
+Start another terminal and execute:
+```
+make ps     # Show processes running into the pod
+```
+Watch the secuence of messages of the different handlers.
 
-1. What happend when the post-start script doesn't finish?
+## Play a little
+
+1. What happend when the post-start script doesn't finish?    
 Uncomment the "sleep infinity" line in the script
 
-2. What happend when the pre-stop script doesn't finish?
+2. What happend when the pre-stop script doesn't finish?    
 Uncomment the "sleep infinity" line in the script
 
-3. What is the best way to ensure that our pod flush data to disk before dying?
+3. What do you think is the best way to ensure that our pod flush data to disk before dying?
 
-
+4. When I use a multicontainer pod, all this stuff applies to all of them?
 
 
 <details close>
