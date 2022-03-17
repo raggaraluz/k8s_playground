@@ -49,17 +49,15 @@ Uncomment the "sleep infinity" line in the script
 
 3. What do you think is the best way to ensure that our pod flush data to disk before dying?
 
-4. When I use a multicontainer pod, all this stuff applies to all of them?
+4. When I use a multicontainer pod, all this stuff applies to all of them?    
+Use signal_watcher2.yaml to test it
 
 
 <details close>
 <summary> Solution</summary>
 <br>
 
-## Key points to highlight:
-- If you don't set the readiness probe, the kubelet assumes that the app is ready to receive traffic as soon as the container starts.
-- If the container takes 10 secons to start, all the requests to it will fail for those 10 seconds. 
-- If the application reaches an unrecoverable error, you should let it crash quickly. A common best-practice if is to implement a full health check in your app returning an error code that tells k8s (kubelet) the container/pod is dead. If your app is vulnerable to deadlocks implements watchdog functions.
-- Readiness probes delay setting conditions conditions to insertion of the pod in the service (endpoints join the pieces), but does nothing after it is added.
-- Liveness probles monitor and restart pods along all its live.
-- You must understand the [pod lifecycle](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/) to tune properly your app for minimal downtime. There are not single value definition that fits all cases.
+1. The post-start hook is blocking
+2. The pre-stop hook is not blocking, the pod will be killed after grace-period expire
+3. The developer has the key, the orchestator (=kubelet) can't know what stage the app is and need to take a decission, as late after grace-period.
+4. Yes, the TERM signal is propagated to all containers (pid=1), but be aware that you must ensure it reaches all the processes running in your containers. 
