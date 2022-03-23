@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  sample-app
+  namespace: playground
+  labels:
+    app:  sample-app
+spec:
+  selector:
+    matchLabels:
+      app: sample-app
+  replicas: 2
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app:  sample-app
+    spec:
+      # initContainers:
+        # Init containers are exactly like regular containers, except:
+          # - Init containers always run to completion.
+          # - Each init container must complete successfully before the next one starts.
+      containers:
+      - name:  sample-app
+        image:  ubuntu:20.04
+        # resources: 
+        #   requests:
+        #     cpu: 1000m
+        #     memory: 1Gi
+        #   limits:
+        #     cpu: 2000m
+        #     memory: 2Gi
+        command: ["/bin/bash", "-c"]
+        args: 
+        - "DEBIAN_FRONTEND=noninteractive ln -fs /usr/share/zoneinfo/Europe/Madrid /etc/localtime;dpkg-reconfigure --frontend noninteractive tzdata;apt-get update && apt-get install -y iputils-ping iproute2 dnsutils iperf3 stress httping;sleep infinity"
+      terminationGracePeriodSeconds: 0
