@@ -10,3 +10,4 @@ February live sessions:
 March live sessions:
 * [HealthChecks](HealthChecks)
 * [PodLifeCycle](PodLifeCycle)
+* [Resources](Resources)
