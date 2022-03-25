@@ -10,7 +10,7 @@ serverPort = 8080
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         if os.path.exists('/tmp/ok'):
-            time.sleep(randint(100,1000)/1000)  # Time your app takes to respond
+#            time.sleep(randint(100,1000)/1000)  # Time your app takes to respond
             self.send_response(200)
         else:
             self.send_response(500)

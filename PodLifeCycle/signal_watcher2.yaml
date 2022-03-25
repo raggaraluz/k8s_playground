@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: signal-watcher
+  name: signal-watcher
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: signal-watcher
+  template:
+    metadata:
+      labels:
+        app: signal-watcher
+    spec:
+      containers:
+      - image: python:3.8-alpine
+        command: ["/bin/sh","-c"]
+        args: 
+        - "python /scripts/signal_watcher.py"
+        name: main
+        env:
+        - name: SHUTDOWN_DELAY
+          value: "10"
+        - name: POD_MODE
+          value: "true"
+        resources: {}
+        lifecycle:
+          postStart:  # This blocks transition to ready till ended
+            exec:
+              command: ["/bin/sh", "-c", "/scripts/post-start.sh > /proc/1/fd/1"]
+          preStop:    # This doesn't block transition to Terminating (deadline<=grace-period) but blocks kill.
+            exec:
+              command: ["/bin/sh", "-c", "/scripts/pre-stop.sh > /proc/1/fd/1"]
+        volumeMounts:
+        - name: scripts
+          mountPath: /scripts
+      - image: python:3.8-alpine
+        command: ["/bin/sh","-c"]
+        args: 
+        - "python /scripts/signal_watcher.py"
+        name: main2
+        env:
+        - name: SHUTDOWN_DELAY
+          value: "10"
+        - name: POD_MODE
+          value: "true"
+        resources: {}
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "-c", "/scripts/post-start.sh > /proc/1/fd/1"]
+          preStop:
+            exec:
+              command: ["/bin/sh", "-c", "/scripts/pre-stop.sh > /proc/1/fd/1"]
+        volumeMounts:
+        - name: scripts
+          mountPath: /scripts
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 5
+      volumes:
+      - name: scripts
+        configMap:
+          name: signal-watcher
+          defaultMode: 0744
+status: {}
